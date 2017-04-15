@@ -1,20 +1,78 @@
-<script type="text/javascript"> 
-   var a = "{{someDjangoVariable}}";
-</script>
-
-
-<link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css">
-<h2 align="center">OCR for Wiki</h2>
-<table align="center">
-<form align="center" enctype="multipart/form-data" action="http://127.0.0.1:8000/" method="post">{% csrf_token %}
-  <tr><td>File URL:</td><td><input type="text" name="file_url" /></td></tr>
-  <tr align="center"><td><input type="file" name="pic"></td></tr>
-  <tr><td>Columns: </td><td><input type="text" name="columns" value="No of Columns in the file" /></td></tr>
-  <tr><td>wiki_username: </td><td><input type="text" name="wiki_username" value="WikiSource Username" /></td></tr>
-  <tr><td>wiki_password: </td><td><input type="password" name="wiki_password" value="WikiSource Password" /></td></tr>
-  <tr><td>wikisource_language_code: </td><td><input type="text" name="wikisource_language_code" value="language code in two letters" /></td></tr>
-  <tr><td>keep_temp_folder_in_google_drive: </td><td><input type="text" name="keep_temp_folder_in_google_drive" value="no" /></td></tr>
-  <tr><td>edit_summary: </td><td><input type="text" name="edit_summary" value="Text from Google OCR" /></td></tr>
-  <tr><td><input type="submit" value="Send" /> </td><td><input type="reset"></td></tr>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OCR for Wikisource</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  	 @import url('https://fonts.googleapis.com/css?family=Aldrich');
+  	body{
+  		background-image: url("http://mirrormirrormusic.com/wp-content/uploads/2017/03/Sound-of-the-Sky.jpg");
+  		background-repeat: no-repeat;
+  		width: 100%;
+  		 font-family: 'Aldrich',san-serif;
+  	}
+  	label {
+  		color: white;
+  		 font-family: 'Aldrich',san-serif;
+  	}
+  	pre{
+  		 font-family: 'Aldrich',san-serif;
+  	}
+  </style>
+  </head>
+<body>
+<br><br><br><br><br>
+<div class="row">
+<div class="col-sm-3 text-left">
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Wikisource-newberg-de.png" width="240" height="320" style="margin-left:15%;margin-top:5%">
+</div>
+ <div class="col-sm-7 text-left">
+<form class="form-horizontal" align="center" enctype="multipart/form-data" action="http://127.0.0.1:8000/" method="post">{% csrf_token %}
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="link">File Link:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="link" placeholder="Enter link of the file">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="columns">Enter No. of Columns:</label>
+    <div class="col-sm-10"> <br>
+      <input type="text" class="form-control" id="columns" placeholder="No. of colums E.g:2">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="columns">WikiSource Username:</label>
+    <div class="col-sm-10"> <br>
+      <input type="text" class="form-control" id="wiki_username" placeholder="WikiSource Username">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">WikiSource Password:</label>
+    <div class="col-sm-10"> <br>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">WikiSource Language Code:</label>
+    <div class="col-sm-10"> <br> 
+      <input type="text" class="form-control" id="pwd" placeholder="Language Code E.g: en for English">
+    </div>
+  </div>
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-5">
+      <button type="submit" class="btn btn-default">Send</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="reset" class="btn btn-default">Reset</button>
+    </div>
+  </div>
 </form>
-</table>
+</div>
+</div>
+<footer class="container-fluid text-center">
+  <pre><h2>Developed by</h2>KLU Open Source Team (<a href="https://github.com/byashwant/" target="_blank">Yashwant Bezawada</a>,<a href="https://github.com/kck1710/" target="_blank">Chaitanya Krishna Kasaraneni</a>,<a href="https://github.com/srikarkashyap" target="_blank"> Srikar Kashyap Pulipaka</a>) under the auspices of MediaWiki Club, India</pre>
+</footer>
+</body>
+</html>
