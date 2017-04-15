@@ -24,5 +24,5 @@ def index(request):
 	con.write("keep_temp_folder_in_google_drive = "+keep_temp_folder_in_google_drive+'\n')
 	con.write("edit_summary = "+edit_summary+'\n')
 	con.close()
-	os.system("python do_ocr.py")
+	os.system("python2 do_ocr.py")
    	return render(request, 'hello.html', {})
